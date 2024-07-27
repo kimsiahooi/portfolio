@@ -2,6 +2,30 @@
   <div>Homepage</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useSeoMeta({
+  title: 'Main Page',
+  description: 'This is the main page',
+  ogTitle: 'Main Page',
+  ogDescription: '[og:description]',
+  ogImage: '[og:image]',
+  ogUrl: '[og:url]',
+  twitterTitle: 'Main Page',
+  twitterDescription: '[twitter:description]',
+  twitterImage: '[twitter:image]',
+  twitterCard: 'summary',
+})
 
-<style scoped></style>
+useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/png',
+      href: '/favicon.ico',
+    },
+  ],
+})
+</script>
