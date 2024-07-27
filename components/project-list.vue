@@ -1,8 +1,7 @@
 <template>
   <p class="mb-10">Take a look at my GitHub projects!</p>
 
-  <section v-if="pending">Loading...</section>
-  <section v-else-if="error">Something went wrong... Try again!</section>
+  <section v-if="error">Something went wrong... Try again!</section>
   <section v-else>
     <ul class="grid grid-cols-1 gap-4">
       <li
@@ -32,7 +31,7 @@ interface Repository {
   description: string
 }
 
-const { error, pending, data } = useFetch<Repository[]>('https://api.github.com/users/piotr-jura-udemy/repos')
+const { error, data } = useFetch<Repository[]>('https://api.github.com/users/piotr-jura-udemy/repos')
 
 const repos = computed(() =>
   data.value?.filter((repo) => repo.description).sort((a, b) => b.stargazers_count - a.stargazers_count)

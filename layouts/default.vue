@@ -15,6 +15,8 @@
 </template>
 
 <script setup lang="ts">
+const colorMode = useColorMode()
+
 useHead({
   titleTemplate: '%s - OKS',
   link: [
@@ -30,6 +32,7 @@ useHead({
 
 <style>
 body {
+  @apply bg-white dark:bg-gray-900 text-gray-700 dark:text-gray-300;
   font-family: 'Roboto', sans-serif;
 }
 </style>
