@@ -1,11 +1,15 @@
 <template>
   <div class="container mx-auto max-w-2xl">
     <header class="flex justify-between items-center mt-5">
-      <div>
-        <NuxtLink to="/" class="text-xl font-semibold p-2 hover:bg-gray-200">OKS</NuxtLink>
+      <div class="flex items-center space-x-12">
+        <div>
+          <NuxtLink to="/" class="text-xl font-semibold p-2 hover:bg-gray-200">OKS</NuxtLink>
+        </div>
+
+        <Menu />
       </div>
 
-      <Menu />
+      <ColorModeSelector />
     </header>
 
     <main class="p-2 mt-10">
@@ -15,8 +19,6 @@
 </template>
 
 <script setup lang="ts">
-const colorMode = useColorMode()
-
 useHead({
   titleTemplate: '%s - OKS',
   link: [
