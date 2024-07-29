@@ -12,12 +12,16 @@
 </template>
 
 <script setup lang="ts">
+interface ModeIcons {
+  [key: string]: string
+}
+
 const showNextModeLabel = ref(false)
 const colorMode = useColorMode()
 
 const modes = ['system', 'light', 'dark']
 
-const nextModeIcons = {
+const nextModeIcons: ModeIcons = {
   system: '🌓',
   light: '🌕',
   dark: '🌑',

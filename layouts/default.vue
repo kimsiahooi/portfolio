@@ -9,7 +9,9 @@
         <Menu />
       </div>
 
-      <ColorModeSelector />
+      <ClientOnly>
+        <ColorModeSelector />
+      </ClientOnly>
     </header>
 
     <main class="p-2 mt-10">
