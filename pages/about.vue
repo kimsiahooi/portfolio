@@ -1,9 +1,5 @@
 <template>
-  <div>About Page</div>
+  <article class="prose dark:prose-invert prose-h1:text-2xl">
+    <ContentDoc path="/about" />
+  </article>
 </template>
-
-<script setup lang="ts">
-useHead({
-  title: 'About',
-})
-</script>
