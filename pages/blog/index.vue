@@ -9,5 +9,6 @@
 </template>
 
 <script setup lang="ts">
-const { data: posts } = await useAsyncData('blog-list', () => queryContent('/blog').only(['_path', 'title']).find())
+const posts = await queryContent('/blog').only(['_path', 'title']).find()
+// const { data: posts } = await useAsyncData('blog-list', () => queryContent('/blog').only(['_path', 'title']).find())
 </script>
