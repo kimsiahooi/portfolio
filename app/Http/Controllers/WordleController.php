@@ -12,7 +12,10 @@ class WordleController extends Controller
      */
     public function index()
     {
-        return inertia('Minigames/Wordle/Index');
+        $wordles = Wordle::latest()->paginate();
+        return inertia('Minigames/Wordle/Index', [
+            'wordles' => $wordles
+        ]);
     }
 
     /**
