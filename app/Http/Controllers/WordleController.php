@@ -46,7 +46,7 @@ class WordleController extends Controller
 
 
 
-        return back()->with('success', 'Word created successfully.');
+        return back()->with('success', 'Words created successfully.');
     }
 
     /**
