@@ -12,7 +12,7 @@ class WordleController extends Controller
      */
     public function index()
     {
-        $wordles = Wordle::latest()->paginate();
+        $wordles = Wordle::orderByDesc('id')->paginate();
         return inertia('Minigames/Wordle/Index', [
             'wordles' => $wordles
         ]);
@@ -32,13 +32,19 @@ class WordleController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'word' => 'required|min:5|max:5',
+            'words.*' => 'required|min:5|max:5',
             'length' => 'required|integer|min:5|max:5'
         ]);
 
-        Wordle::firstOrCreate([
-            'word' => $validatedData['word'],
-        ], $validatedData);
+        foreach ($validatedData['words'] as $word) {
+            Wordle::firstOrCreate([
+                'word' => $word,
+            ], [
+                'length' => $validatedData['length']
+            ]);
+        }
+
+
 
         return back()->with('success', 'Word created successfully.');
     }

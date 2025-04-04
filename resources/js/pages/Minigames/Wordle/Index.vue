@@ -28,15 +28,15 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 const formatDate = useFormatDate();
 
-const createWordHandler = () => {
+const generateWordsHandler = () => {
     const length = 5;
-    const word = faker.word.sample(length);
+    const words = faker.helpers.multiple(() => faker.word.sample(length), { count: 1000 });
 
     router.visit(route('admin.minigames.wordle.store'), {
         method: 'post',
         preserveScroll: true,
         data: {
-            word,
+            words,
             length,
         },
     });
@@ -49,7 +49,7 @@ const createWordHandler = () => {
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
             <div class="flex flex-wrap justify-end">
-                <Button @click="createWordHandler">Generate Word</Button>
+                <Button @click="generateWordsHandler">Generate Words</Button>
             </div>
             <Card>
                 <CardHeader>
