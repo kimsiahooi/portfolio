@@ -2,9 +2,40 @@
 declare module 'ziggy-js' {
   interface RouteList {
     "home": [],
-    "dashboard": [],
     "github.redirect": [],
     "github.callback": [],
+    "admin.dashboard": [],
+    "admin.minigames.wordle.index": [],
+    "admin.minigames.wordle.create": [],
+    "admin.minigames.wordle.store": [],
+    "admin.minigames.wordle.show": [
+        {
+            "name": "wordle",
+            "required": true,
+            "binding": "id"
+        }
+    ],
+    "admin.minigames.wordle.edit": [
+        {
+            "name": "wordle",
+            "required": true,
+            "binding": "id"
+        }
+    ],
+    "admin.minigames.wordle.update": [
+        {
+            "name": "wordle",
+            "required": true,
+            "binding": "id"
+        }
+    ],
+    "admin.minigames.wordle.destroy": [
+        {
+            "name": "wordle",
+            "required": true,
+            "binding": "id"
+        }
+    ],
     "profile.edit": [],
     "profile.update": [],
     "profile.destroy": [],
