@@ -29,15 +29,13 @@ const breadcrumbs: BreadcrumbItem[] = [
 const formatDate = useFormatDate();
 
 const generateWordsHandler = () => {
-    const length = 5;
-    const words = faker.helpers.multiple(() => faker.word.sample(length), { count: 1000 });
+    const words = faker.helpers.uniqueArray(faker.word.sample, 1000).map((word) => ({ word, length: word.length }));
 
     router.visit(route('admin.minigames.wordle.store'), {
         method: 'post',
         preserveScroll: true,
         data: {
             words,
-            length,
         },
     });
 };

@@ -32,15 +32,16 @@ class WordleController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'words.*' => 'required|min:5|max:5',
-            'length' => 'required|integer|min:5|max:5'
+            'words.*.word' => 'required|string|min:1',
+            'words.*.length' => 'required|integer|min:1',
         ]);
 
         foreach ($validatedData['words'] as $word) {
             Wordle::firstOrCreate([
-                'word' => $word,
+                'word' => $word['word'],
+
             ], [
-                'length' => $validatedData['length']
+                'length' => $word['length'],
             ]);
         }
 
