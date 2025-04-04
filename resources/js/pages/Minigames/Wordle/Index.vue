@@ -58,7 +58,7 @@ const createWordHandler = () => {
                 <CardContent> Card Content </CardContent>
             </Card>
             <Separator class="my-4" />
-            <Table>
+            <Table class="min-w-max">
                 <TableCaption>{{ wordles.data.length ? 'A list of your recent wordles.' : 'Wordle not found.' }}</TableCaption>
                 <TableHeader>
                     <TableRow>
